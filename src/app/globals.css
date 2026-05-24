@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-display: var(--font-display), serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-bg-deep: var(--bg-deep);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-on-accent: var(--on-accent);
+  --color-rule: var(--rule);
+}
+
+:root {
+  /* RAY — warm cream, black ink, antique brass accent */
+  --bg: #F4F0E8;
+  --bg-soft: #ECE6D9;
+  --bg-deep: #0E0D0B;
+  --accent: #C9A36B;
+  --accent-hover: #A8854E;
+  --ink: #0E0D0B;
+  --ink-muted: #6B6358;
+  --ink-faint: #B0A99C;
+  --on-accent: #0E0D0B;
+  --rule: rgba(14, 13, 11, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  background-color: var(--bg);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background-color: var(--ink);
+  color: var(--bg);
+}
+
+*:focus { outline: none; }
+*:focus-visible { outline: none; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 2px 0 0 var(--accent);
+  border-radius: 1px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
+/* Letter-by-letter reveal helper */
+.fade-in-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  animation: letter-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes letter-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 32s linear infinite; }
+@media (hover: hover) {
+  .marquee-host:hover .marquee { animation-play-state: paused; }
+}
+
+/* Hand-drawn underline grow on hover */
+.swipe-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: background-size 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: 2px;
+}
+.swipe-underline:hover,
+.group:hover .swipe-underline { background-size: 100% 1px; }
+
+/* Image hover treatment */
+.frame-hover { transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease; }
+.frame-hover:hover { transform: scale(1.02); filter: brightness(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee { animation: none !important; }
+  .fade-in-letter { opacity: 1; transform: none; animation: none; }
+}
