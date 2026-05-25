@@ -148,7 +148,6 @@ export const content: SiteContent = {
       { src: "/images/ray-9.jpg", alt: "Editorial portrait with downward gaze.", aspect: "portrait", caption: "Editorial · After Hours" },
       { src: "/images/ray-10.jpg", alt: "Editorial portrait with sunglasses, contrast lighting.", aspect: "portrait", caption: "Editorial · After Hours" },
       { src: "/images/ray-11.jpg", alt: "Polka dot editorial portrait with sunglasses.", aspect: "portrait", caption: "Editorial · After Hours" },
-      { src: "/images/ray-12.jpg", alt: "Editorial portrait with patterned scarf.", aspect: "portrait", caption: "Editorial · After Hours" },
     ],
   },
 
@@ -175,8 +174,7 @@ export const content: SiteContent = {
           { src: "/images/ray-11.jpg", alt: "Editorial frame 02 — polka-dot top.", aspect: "portrait" },
           { src: "/images/ray-7.jpg", alt: "Editorial frame 03 — close on earrings.", aspect: "portrait" },
           { src: "/images/ray-9.jpg", alt: "Editorial frame 04 — downward gaze.", aspect: "portrait" },
-          { src: "/images/ray-12.jpg", alt: "Editorial frame 05 — patterned scarf.", aspect: "portrait" },
-          { src: "/images/ray-10.jpg", alt: "Editorial frame 06 — direct gaze.", aspect: "portrait" },
+          { src: "/images/ray-10.jpg", alt: "Editorial frame 05 — direct gaze.", aspect: "portrait" },
         ],
       },
       {
